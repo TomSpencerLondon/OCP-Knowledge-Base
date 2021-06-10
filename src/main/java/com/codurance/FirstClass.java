@@ -15,6 +15,9 @@ public class FirstClass {
   // JVM - designates one thread and runs code
   // in the main method
 
+  // Callable.call() allows you to declare checked exceptions while Runnable.run()
+  // does not. So if your task throws a checked exception,
+  // it would be more appropriate to use a Callable.
   public static void main(String[] args) throws ExecutionException, InterruptedException {
     boolean isException = false;
     // This thread takes time to spawn
