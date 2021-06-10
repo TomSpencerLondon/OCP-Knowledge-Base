@@ -16,12 +16,17 @@ public class FirstClass {
   // in the main method
 
   public static void main(String[] args) throws ExecutionException, InterruptedException {
-
+    boolean isException = false;
     // This thread takes time to spawn
     Thread thread = new Thread(() -> out.println("Hello from runnable 1"));
     thread.start();
 
-    Callable<String> callable = () -> "Completed call";
+    Callable<String> callable = () -> {
+      if (isException){
+        throw new Exception();
+      }
+      return "Completed call";
+    };
 
     ExecutorService executor = Executors.newFixedThreadPool(2);
     Future<String> submitted = executor.submit(callable);
