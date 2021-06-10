@@ -1,5 +1,7 @@
 package com.codurance;
 
+import static java.lang.System.out;
+
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
@@ -16,18 +18,18 @@ public class FirstClass {
   public static void main(String[] args) throws ExecutionException, InterruptedException {
 
     // This thread takes time to spawn
-    Thread thread = new Thread(() -> System.out.println("Hello from runnable 1"));
+    Thread thread = new Thread(() -> out.println("Hello from runnable 1"));
     thread.start();
 
-    Callable<String> callable = (Callable) () -> "Completed call";
+    Callable<String> callable = () -> "Completed call";
 
     ExecutorService executor = Executors.newFixedThreadPool(2);
     Future<String> submitted = executor.submit(callable);
 
-    System.out.println(submitted.get());
+    out.println(submitted.get());
 
 
-    System.out.println("Hello world!");
+    out.println("Hello world!");
 
     executor.shutdown();
   }
