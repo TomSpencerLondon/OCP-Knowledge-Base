@@ -19,12 +19,7 @@ public class FirstClass {
     Thread thread = new Thread(() -> System.out.println("Hello from runnable 1"));
     thread.start();
 
-    Callable<String> callable = new Callable() {
-      @Override
-      public String call() throws Exception {
-        return "Completed call";
-      }
-    };
+    Callable<String> callable = (Callable) () -> "Completed call";
 
     ExecutorService executor = Executors.newFixedThreadPool(2);
     Future<String> submitted = executor.submit(callable);
