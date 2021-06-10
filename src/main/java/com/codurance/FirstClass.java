@@ -21,14 +21,14 @@ public class FirstClass {
   public static void main(String[] args) throws ExecutionException, InterruptedException {
     boolean isException = false;
     // This thread takes time to spawn
-    Thread thread = new Thread(() -> out.println("Hello from runnable 1"));
+    Thread thread = new Thread(() -> out.println("Hello from runnable 1: " + Thread.currentThread().getName()));
     thread.start();
 
     Callable<String> callable = () -> {
       if (isException){
         throw new Exception();
       }
-      return "Completed call";
+      return "Completed call" + Thread.currentThread().getName();
     };
 
     ExecutorService executor = Executors.newFixedThreadPool(2);
@@ -36,7 +36,7 @@ public class FirstClass {
 
     out.println(submitted.get());
 
-
+    out.println(Thread.currentThread().getName());
     out.println("Hello world!");
 
     executor.shutdown();
