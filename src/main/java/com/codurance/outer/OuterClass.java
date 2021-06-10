@@ -12,6 +12,8 @@ public class OuterClass {
   }
 
   static class StaticNestedClass {
+    String nonStatic = "nonStatic";
+
     void accessMembers(OuterClass outer) {
       // Compiler error: cannot make a static reference to the non-static
       // field outerField
@@ -24,13 +26,17 @@ public class OuterClass {
     }
   }
 
+  static interface StaticNestedInterface {
+    static String a = "ab";
+  }
+
   public static void main(String[] args) {
     System.out.println("Inner class:");
     System.out.println("------------");
     OuterClass outerObject = new OuterClass();
     OuterClass.InnerClass innerObject = outerObject.new InnerClass();
     innerObject.accessMembers();
-
+    
     System.out.println("\nStatic nested class:");
     System.out.println("----------------------");
     StaticNestedClass staticNestedObject = new StaticNestedClass();

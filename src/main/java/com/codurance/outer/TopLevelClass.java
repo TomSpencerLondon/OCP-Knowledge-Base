@@ -8,4 +8,15 @@ public class TopLevelClass {
     System.out.println(outer.outerField);
     System.out.println(OuterClass.staticOuterField);
   }
+
+  class A {
+  }
+
+  public static void main(String[] args) {
+    TopLevelClass topLevelClass = new TopLevelClass();
+    A a1 = topLevelClass.new A();
+    A a2 = topLevelClass.new A();
+    A a3 = topLevelClass.new A();
+
+  }
 }
