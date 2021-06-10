@@ -11,6 +11,15 @@ public class StaticClass {
 
   protected static void otherMethod() {
     System.out.println("Other method");
+
+    // Anonymous class
+
+    new Runnable() {
+      @Override
+      public void run() {
+        System.out.println("It runs");
+      }
+    };
   }
 
   // Illegal combination of modifiers: 'abstract' and 'static'

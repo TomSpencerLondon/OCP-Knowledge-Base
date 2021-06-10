@@ -13,6 +13,14 @@ public class Conditional {
     if (a = b) {
       System.out.println("a = b");
     }
+
+    if (false) ; else ;
+    System.out.println("End of function");
+
+//    No implicit transformation
+//    if ("hello"){
+//
+//    }
   }
 
   private static boolean hello() {
