@@ -12,11 +12,16 @@ public class TopLevelClass {
   class A {
   }
 
+  static class B {
+  }
+
   public static void main(String[] args) {
     TopLevelClass topLevelClass = new TopLevelClass();
     A a1 = topLevelClass.new A();
     A a2 = topLevelClass.new A();
     A a3 = topLevelClass.new A();
 
+    B b = new TopLevelClass.B();
+    B b2 = new TopLevelClass.B();
   }
 }
