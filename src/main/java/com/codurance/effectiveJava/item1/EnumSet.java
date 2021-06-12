@@ -1,4 +1,4 @@
-package com.codurance.effectiveJava;
+package com.codurance.effectiveJava.item1;
 
 import java.util.Set;
 
