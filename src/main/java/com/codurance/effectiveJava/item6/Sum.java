@@ -10,7 +10,6 @@ public class Sum {
           for (long i = 0; i <= Integer.MAX_VALUE; i++){
               sum += i;
           }
-
           return sum;
     }
 
